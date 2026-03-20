@@ -38,7 +38,7 @@ export default function CtaSection() {
           </motion.div>
         ) : (
           <motion.div initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:0.2}}>
-            <div style={{ display:'flex', gap:0, maxWidth:420, margin:'0 auto', flexWrap:'wrap', justifyContent:'center', gap:'clamp(0px,1vw,0px)' }}>
+            <div style={{ display:'flex', maxWidth:420, margin:'0 auto', flexWrap:'wrap', justifyContent:'center', gap:'clamp(0px,1vw,0px)' }}>
               <input
                 type="email"
                 value={email}
