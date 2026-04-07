@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Logo from '@/components/Logo'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -34,14 +35,7 @@ export default function Navbar() {
           transition: 'background 0.3s, border-color 0.3s',
         }}
       >
-        <a href="#" style={{ display:'flex', alignItems:'center', gap:8, fontFamily:'var(--font-mono)', fontSize:15, fontWeight:500, color:'var(--off-white)', textDecoration:'none' }}>
-          <motion.div
-            animate={{ scale:[1,1.4,1], opacity:[1,0.7,1] }}
-            transition={{ duration:2, repeat:Infinity, ease:'easeInOut' }}
-            style={{ width:8, height:8, borderRadius:'50%', background:'var(--accent)', flexShrink:0 }}
-          />
-          comainter
-        </a>
+        <Logo size="md" />
 
         <div style={{ display:'flex', alignItems:'center', gap:32 }} className="nav-desktop">
           {links.map(l => (
