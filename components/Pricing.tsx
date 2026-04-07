@@ -16,7 +16,7 @@ const PLANS = [
   {
     name: 'Enterprise', price: null, period: 'contact us', featured: false,
     features: ['Unlimited repos', 'SSO + audit logs', 'Private repo indexing', 'SLA + dedicated support', 'Custom knowledge models'],
-    cta: 'Talk to sales', ctaHref: 'mailto:hello@mergemind.dev', ctaStyle: 'outline',
+    cta: 'Talk to sales', ctaHref: 'mailto:support@comainter.com', ctaStyle: 'outline',
   },
 ]
 

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { staggerContainer, staggerItem } from '@/lib/motion'
 
 const TESTIMONIALS = [
-  { quote: '"We were closing 40 duplicate issues a week by hand. MergeMin catches them in seconds. It\'s the first tool that actually understands what the issue is about, not just the title."', name: 'Siddharth K.', role: 'Lead maintainer, 8.2k ★ repo', initials: 'SK', color: 'rgba(200,255,0,0.15)', textColor: 'var(--accent)' },
+  { quote: '"We were closing 40 duplicate issues a week by hand. Comainter catches them in seconds. It\'s the first tool that actually understands what the issue is about, not just the title."', name: 'Siddharth K.', role: 'Lead maintainer, 8.2k ★ repo', initials: 'SK', color: 'rgba(200,255,0,0.15)', textColor: 'var(--accent)' },
   { quote: '"The context pack alone is worth it. I used to spend 20 minutes figuring out if a bug was already known. Now I open an issue and the answer is right there."', name: 'Maria R.', role: 'OSS DevRel, mid-size infra tool', initials: 'MR', color: 'rgba(255,95,95,0.15)', textColor: '#ff5f5f' },
   { quote: '"We were about to limit issue submissions because we couldn\'t keep up. This bought us six months of runway. The team is less burned out than it\'s been in two years."', name: 'James L.', role: 'Engineering Manager, corp-backed OSS', initials: 'JL', color: 'rgba(100,180,255,0.15)', textColor: '#64b4ff' },
 ]

@@ -7,10 +7,10 @@ export default function Footer() {
       <a href="#" style={{ display:'flex', alignItems:'center', gap:8, fontFamily:'var(--font-mono)', fontSize:13, fontWeight:500, color:'var(--off-white)', textDecoration:'none' }}>
         <motion.div animate={{scale:[1,1.4,1],opacity:[1,0.7,1]}} transition={{duration:2,repeat:Infinity,ease:'easeInOut'}}
           style={{ width:7,height:7,borderRadius:'50%',background:'var(--accent)',flexShrink:0 }} />
-        mergemind
+        comainter
       </a>
       <div style={{ display:'flex', gap:24, flexWrap:'wrap' }}>
-        {[['Privacy','#'],['Terms','#'],['GitHub','https://github.com'],['Contact','mailto:hello@mergemind.dev']].map(([label, href]) => (
+        {[['Privacy','#'],['Terms','#'],['GitHub','https://github.com'],['Contact','mailto:support@comainter.com']].map(([label, href]) => (
           <a key={label} href={href} style={{ color:'var(--muted)', textDecoration:'none', transition:'color 0.2s' }}
             onMouseEnter={e => (e.currentTarget.style.color='var(--off-white)')}
             onMouseLeave={e => (e.currentTarget.style.color='var(--muted)')}>
@@ -18,7 +18,7 @@ export default function Footer() {
           </a>
         ))}
       </div>
-      <span>© 2025 MergeMin</span>
+      <span>© 2026 Comainter</span>
     </footer>
   )
 }

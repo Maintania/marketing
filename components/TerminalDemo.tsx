@@ -48,7 +48,7 @@ export default function TerminalDemo() {
         style={{ background:'#0d0d0b', border:'1px solid var(--border)', borderRadius:12, overflow:'hidden', fontFamily:'var(--font-mono)', fontSize:'clamp(11px,1.5vw,13px)', boxShadow:'0 40px 80px rgba(0,0,0,0.6)' }}>
         <div style={{ background:'#1a1a17', padding:'12px 18px', display:'flex', alignItems:'center', gap:8, borderBottom:'1px solid var(--border)' }}>
           {['#ff5f57','#febc2e','#28c840'].map(c => <div key={c} style={{ width:10, height:10, borderRadius:'50%', background:c }} />)}
-          <span style={{ fontSize:12, color:'var(--muted)', marginLeft:'auto', marginRight:'auto' }}>mergemind · live triage</span>
+          <span style={{ fontSize:12, color:'var(--muted)', marginLeft:'auto', marginRight:'auto' }}>comainter · live triage</span>
         </div>
         <div style={{ padding:24 }}>
           {LINES.map((line, i) => (

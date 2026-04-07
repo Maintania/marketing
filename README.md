@@ -1,6 +1,6 @@
-# MergeMin — Marketing Page
+# Comainter — Marketing Page
 
-Next.js 14 + Framer Motion marketing page for the MergeMin OSS maintainer AI.
+Next.js 14 + Framer Motion marketing page for the Comainter OSS maintainer AI.
 
 ## Setup
 

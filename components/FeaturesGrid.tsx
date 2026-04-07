@@ -5,7 +5,7 @@ import { staggerContainer, staggerItem } from '@/lib/motion'
 const FEATURES = [
   { icon: '🔍', name: 'Duplicate detector', desc: 'Vector similarity search across all open and closed issues. Finds duplicates even when reporters use completely different words.' },
   { icon: '🏷', name: 'Auto-triage & labelling', desc: 'Classifies every issue as bug, feature, question, or docs. Assigns severity and suggested assignee — ready for one-click approval.' },
-  { icon: '📦', name: 'Context pack', desc: 'Opens every issue with a full briefing: related PRs, relevant code files, similar past resolutions, and affected versions.' },
+  // { icon: '📦', name: 'Context pack', desc: 'Opens every issue with a full briefing: related PRs, relevant code files, similar past resolutions, and affected versions.' },
   { icon: '💬', name: 'Draft reply engine', desc: 'Generates a contextual, accurate first reply — including links to existing fixes. Never invents a solution that doesn\'t exist.' },
   { icon: '⏰', name: 'Stale issue manager', desc: 'Monitors inactive issues and drafts polite follow-ups or close suggestions. Keeps your tracker clean automatically.' },
   { icon: '📊', name: 'Insights dashboard', desc: 'Issue velocity, top recurring problems, time saved, and contributor heat maps — the data your engineering manager needs to justify the tool.' },

@@ -40,7 +40,7 @@ export default function Navbar() {
             transition={{ duration:2, repeat:Infinity, ease:'easeInOut' }}
             style={{ width:8, height:8, borderRadius:'50%', background:'var(--accent)', flexShrink:0 }}
           />
-          mergemind
+          comainter
         </a>
 
         <div style={{ display:'flex', alignItems:'center', gap:32 }} className="nav-desktop">

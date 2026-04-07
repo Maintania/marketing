@@ -57,7 +57,7 @@ export default function Hero() {
         <motion.p
           variants={fadeUp} initial="hidden" animate="visible" custom={0.4}
           style={{ fontSize:'clamp(16px,2vw,18px)', color:'var(--muted)', maxWidth:520, lineHeight:1.7, marginBottom:'clamp(32px,4vw,48px)' }}>
-          MergeMin is the AI co-maintainer for mid and large open source projects. It triages issues, surfaces duplicates, and builds knowledge — so your team can focus on shipping.
+          Comainter is the AI co-maintainer for mid and large open source projects. It triages issues, surfaces duplicates, and builds knowledge — so your team can focus on shipping.
         </motion.p>
 
         <motion.div
