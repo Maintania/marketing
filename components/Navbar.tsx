@@ -50,7 +50,7 @@ export default function Navbar() {
             whileHover={{ y:-1, boxShadow:'0 8px 24px rgba(200,255,0,0.2)' }}
             whileTap={{ scale:0.97 }}
             style={{ fontFamily:'var(--font-mono)', fontSize:13, fontWeight:500, background:'var(--accent)', color:'var(--black)', padding:'10px 20px', borderRadius:4, textDecoration:'none' }}>
-            Get early access →
+            Get Started →
           </motion.a>
         </div>
 
