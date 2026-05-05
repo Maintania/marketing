@@ -1,25 +1,25 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import StatsBar from '@/components/StatsBar'
+import IssueStream from '@/components/IssueStream'
 import HowItWorks from '@/components/HowItWorks'
-import TerminalDemo from '@/components/TerminalDemo'
+import PerformanceSection from '@/components/PerformanceSection'
 import FeaturesGrid from '@/components/FeaturesGrid'
-import Testimonials from '@/components/Testimonials'
-import Pricing from '@/components/Pricing'
+import LazyDashboardPreview from '@/components/LazyDashboardPreview'
+import StatsBar from '@/components/StatsBar'
 import CtaSection from '@/components/CtaSection'
 import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <main>
+    <main className="min-h-screen overflow-hidden bg-[#05060a] text-white">
       <Navbar />
       <Hero />
-      <StatsBar />
+      <IssueStream />
       <HowItWorks />
-      <TerminalDemo />
+      <PerformanceSection />
       <FeaturesGrid />
-      <Testimonials />
-      <Pricing />
+      <LazyDashboardPreview />
+      <StatsBar />
       <CtaSection />
       <Footer />
     </main>

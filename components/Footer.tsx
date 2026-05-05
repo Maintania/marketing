@@ -1,20 +1,26 @@
-'use client'
 import Logo from '@/components/Logo'
+
+const links = [
+  { label: 'Features', href: '/#features' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Docs', href: '#' },
+  { label: 'Git Platforms', href: '/#features' },
+]
 
 export default function Footer() {
   return (
-    <footer style={{ borderTop:'1px solid var(--border)', padding:'clamp(24px,3vw,40px) clamp(16px,5vw,48px)', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:16, fontSize:13, color:'var(--muted)' }}>
-      <Logo size="sm" />
-      <div style={{ display:'flex', gap:24, flexWrap:'wrap' }}>
-        {[['Privacy','#'],['Terms','#'],['GitHub','https://github.com'],['Contact','mailto:support@comainter.com']].map(([label, href]) => (
-          <a key={label} href={href} style={{ color:'var(--muted)', textDecoration:'none', transition:'color 0.2s' }}
-            onMouseEnter={e => (e.currentTarget.style.color='var(--off-white)')}
-            onMouseLeave={e => (e.currentTarget.style.color='var(--muted)')}>
-            {label}
-          </a>
-        ))}
+    <footer className="border-t border-white/10 px-4 py-8 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <Logo size="sm" />
+        <nav className="flex flex-wrap gap-5 text-sm text-slate-500">
+          {links.map((link) => (
+            <a key={link.label} href={link.href} className="transition-colors hover:text-white">
+              {link.label}
+            </a>
+          ))}
+        </nav>
+        <p className="text-sm text-slate-600">&copy; 2026 Comainter</p>
       </div>
-      <span>© 2026 Comainter</span>
     </footer>
   )
 }

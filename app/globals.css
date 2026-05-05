@@ -1,39 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap');
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+@import "tailwindcss";
 
 :root {
-  --black: #0a0a0a;
-  --off-white: #f5f2ed;
-  --accent: #c8ff00;
-  --accent-dim: #a8d800;
-  --muted: #6b6760;
-  --border: rgba(255,255,255,0.09);
-  --card-bg: #111110;
-  --font-display: 'DM Serif Display', serif;
-  --font-body: 'Instrument Sans', sans-serif;
-  --font-mono: 'DM Mono', monospace;
+  --background: #05060a;
+  --foreground: #f7f8ff;
+  --muted: #9aa3b2;
+  --panel: rgba(12, 16, 28, 0.72);
+  --line: rgba(148, 163, 184, 0.16);
+  --accent: #8b5cf6;
+  --accent-blue: #38bdf8;
+  --font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-html { scroll-behavior: smooth; }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background: var(--black);
-  color: var(--off-white);
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(139, 92, 246, 0.18), transparent 30rem),
+    radial-gradient(circle at 88% 12%, rgba(56, 189, 248, 0.12), transparent 28rem),
+    var(--background);
+  color: var(--foreground);
   font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 body::after {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  z-index: 60;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+  opacity: 0.32;
   pointer-events: none;
-  z-index: 9999;
-  opacity: 0.5;
 }
 
-::selection { background: var(--accent); color: var(--black); }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.5);
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

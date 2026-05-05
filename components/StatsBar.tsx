@@ -1,60 +1,40 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
 
-const STATS = [
-  { num: 73, suffix: '%', label: 'reduction in triage time' },
-  { num: 4200, suffix: '+', label: 'issues triaged per day' },
-  { num: 91, suffix: '%', label: 'duplicate detection accuracy' },
-  { num: 12, suffix: '', label: 'repos in private beta' },
+import { motion } from 'framer-motion'
+import AnimatedCounter from '@/components/AnimatedCounter'
+import { fadeUp, staggerContainer, staggerItem } from '@/lib/motion'
+
+const stats = [
+  { value: 4200, suffix: '+', label: 'issues triaged per day' },
+  { value: 91, suffix: '%', label: 'triage answer accuracy' },
+  { value: 73, suffix: '%', label: 'less maintainer triage time' },
+  { value: 12, suffix: '', label: 'projects in private beta' },
 ]
-
-function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
-  const [count, setCount] = useState(0)
-  const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true })
-
-  useEffect(() => {
-    if (!inView) return
-    const duration = 1400
-    const step = target / (duration / 16)
-    let current = 0
-    const timer = setInterval(() => {
-      current = Math.min(current + step, target)
-      setCount(Math.round(current))
-      if (current >= target) clearInterval(timer)
-    }, 16)
-    return () => clearInterval(timer)
-  }, [inView, target])
-
-  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>
-}
 
 export default function StatsBar() {
   return (
-    <div style={{
-      borderTop: '1px solid var(--border)',
-      borderBottom: '1px solid var(--border)',
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-      gap: '1px',
-      background: 'var(--border)',
-    }}>
-      {STATS.map((s, i) => (
-        <motion.div
-          key={s.label}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 }}
-          style={{ background: 'var(--black)', padding: 'clamp(24px,4vw,40px) clamp(20px,4vw,40px)' }}
-        >
-          <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(36px,5vw,52px)', color: 'var(--accent)', lineHeight: 1, marginBottom: 8 }}>
-            <AnimatedCounter target={s.num} suffix={s.suffix} />
-          </div>
-          <div style={{ fontSize: 14, color: 'var(--muted)' }}>{s.label}</div>
+    <section id="stats" className="px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.35 }} className="mb-12 max-w-3xl">
+          <motion.p variants={fadeUp} className="font-[var(--font-mono)] text-xs font-medium uppercase tracking-[0.18em] text-violet-300">
+            Social Proof
+          </motion.p>
+          <motion.h2 variants={fadeUp} custom={0.08} className="mt-4 text-4xl font-semibold tracking-[-0.035em] text-white sm:text-6xl">
+            Designed for projects where issue volume never slows down.
+          </motion.h2>
         </motion.div>
-      ))}
-    </div>
+
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className="grid gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((stat) => (
+            <motion.div key={stat.label} variants={staggerItem} className="bg-[#070914] p-6 sm:p-8">
+              <p className="text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
+                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+              </p>
+              <p className="mt-3 text-sm leading-6 text-slate-400">{stat.label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
   )
 }

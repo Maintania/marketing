@@ -1,106 +1,98 @@
 'use client'
+
 import { motion } from 'framer-motion'
-import { fadeUp } from '@/lib/motion'
-
-const ISSUES = [
-  { type:'dup', num:'#4821', title:'Memory leak on unmount', tag:'duplicate →#3104', tagClass:'tag-dup' },
-  { type:'bug', num:'#4822', title:'TypeError in async iterator', tag:'bug · high', tagClass:'tag-bug' },
-  { type:'feat', num:'#4823', title:'Add dark mode support', tag:'feature', tagClass:'tag-feat' },
-  { type:'dup', num:'#4824', title:'Build fails on Windows', tag:'duplicate →#3892', tagClass:'tag-dup' },
-  { type:'bug', num:'#4825', title:'useEffect fires twice', tag:'bug · critical', tagClass:'tag-bug' },
-  { type:'feat', num:'#4826', title:'Plugin docs unclear', tag:'docs', tagClass:'tag-feat' },
-  { type:'dup', num:'#4827', title:'HMR broken after v3.2', tag:'duplicate →#4103', tagClass:'tag-dup' },
-  { type:'bug', num:'#4828', title:'Race condition in scheduler', tag:'bug · high', tagClass:'tag-bug' },
-]
-const DOUBLE = [...ISSUES, ...ISSUES]
-
-const DOT_COLORS: Record<string,string> = { dup:'#888', bug:'#ff5f5f', feat:'#c8ff00' }
-const TAG_STYLES: Record<string,React.CSSProperties> = {
-  'tag-dup': { background:'rgba(136,136,136,0.15)', color:'#888' },
-  'tag-bug': { background:'rgba(255,95,95,0.15)', color:'#ff5f5f' },
-  'tag-feat': { background:'rgba(200,255,0,0.12)', color:'#c8ff00' },
-}
 
 export default function Hero() {
   return (
-    <section style={{ minHeight:'100vh', display:'flex', flexDirection:'column', justifyContent:'center', padding:'clamp(100px,12vw,140px) clamp(16px,5vw,48px) 60px', position:'relative', overflow:'hidden' }}>
-
-      {/* Animated grid */}
-      <motion.div
-        animate={{ y:[0,60] }}
-        transition={{ duration:20, repeat:Infinity, ease:'linear' }}
-        style={{ position:'absolute', inset:0, backgroundImage:'linear-gradient(rgba(200,255,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(200,255,0,0.04) 1px,transparent 1px)', backgroundSize:'60px 60px', maskImage:'radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent)', pointerEvents:'none' }}
+    <section className="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4 pb-20 pt-28 text-center sm:px-6 lg:px-8">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-30 bg-[#05060a]"
       />
-
-      {/* Glow blob */}
-      <motion.div
-        animate={{ scale:[1,1.12,1], opacity:[0.6,1,0.6] }}
-        transition={{ duration:6, repeat:Infinity, ease:'easeInOut' }}
-        style={{ position:'absolute', width:'min(700px,100vw)', height:'min(700px,100vw)', background:'radial-gradient(circle,rgba(200,255,0,0.07) 0%,transparent 70%)', top:'50%', left:'50%', transform:'translate(-50%,-50%)', pointerEvents:'none' }}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_50%_34%,rgba(56,189,248,0.18),transparent_22rem),radial-gradient(circle_at_50%_48%,rgba(139,92,246,0.20),transparent_28rem),linear-gradient(180deg,rgba(255,255,255,0.045),transparent_38%)]"
       />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 -z-10 h-96 bg-[linear-gradient(90deg,transparent,rgba(125,211,252,0.14),transparent)] opacity-50 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute left-1/2 top-1/2 -z-10 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.055]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute left-1/2 top-1/2 -z-10 h-[22rem] w-[22rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-sky-200/[0.07]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:96px_96px] [mask-image:radial-gradient(ellipse_60%_44%_at_50%_42%,black,transparent)]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 -z-10 h-56 bg-gradient-to-t from-[#05060a] to-transparent"
+      />
+      <HeroVercelAura />
 
-      <div style={{ position:'relative', zIndex:2, maxWidth:900 }}>
-        <motion.div
-          variants={fadeUp} initial="hidden" animate="visible" custom={0.1}
-          style={{ display:'inline-flex', alignItems:'center', gap:8, fontFamily:'var(--font-mono)', fontSize:12, color:'var(--accent)', border:'1px solid rgba(200,255,0,0.3)', padding:'6px 14px', borderRadius:100, marginBottom:'clamp(24px,4vw,40px)' }}>
-          <span style={{ width:6,height:6,borderRadius:'50%',background:'var(--accent)',flexShrink:0 }} />
-          Now in private beta — 12 repos onboarded
-        </motion.div>
+      <div className="mx-auto flex w-full max-w-5xl flex-col items-center">
+        <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-3.5 py-2 font-[var(--font-mono)] text-[0.68rem] font-medium uppercase tracking-[0.16em] text-sky-100/90 shadow-2xl shadow-black/20 backdrop-blur">
+          <span className="h-1.5 w-1.5 rounded-full bg-sky-300 shadow-[0_0_18px_rgba(125,211,252,0.75)]" />
+          AI co-maintainer for open source
+        </div>
 
-        <motion.h1
-          variants={fadeUp} initial="hidden" animate="visible" custom={0.25}
-          style={{ fontFamily:'var(--font-display)', fontSize:'clamp(44px,8vw,96px)', lineHeight:1.0, letterSpacing:'-0.02em', marginBottom:'clamp(20px,3vw,32px)' }}>
-          Stop drowning<br />in{' '}
-          <em style={{ fontStyle:'italic', color:'var(--accent)' }}>GitHub noise.</em>
-        </motion.h1>
+        <h1 className="mx-auto flex max-w-5xl flex-col items-center gap-5 text-balance text-5xl font-black leading-[0.93] tracking-[-0.055em] text-white sm:gap-7 sm:text-7xl lg:text-8xl">
+          <span>Stop drowning in</span>
+          <span className="bg-gradient-to-r from-sky-200 via-white to-violet-200 bg-clip-text text-transparent drop-shadow-[0_0_38px_rgba(125,211,252,0.2)]">
+            issues.
+          </span>
+        </h1>
 
-        <motion.p
-          variants={fadeUp} initial="hidden" animate="visible" custom={0.4}
-          style={{ fontSize:'clamp(16px,2vw,18px)', color:'var(--muted)', maxWidth:520, lineHeight:1.7, marginBottom:'clamp(32px,4vw,48px)' }}>
-          Comainter is the AI co-maintainer for mid and large open source projects. It triages issues, surfaces duplicates, and builds knowledge — so your team can focus on shipping.
-        </motion.p>
+        <p className="mx-auto mt-10 max-w-2xl text-pretty text-base font-medium leading-8 text-slate-200/90 sm:text-lg">
+          Comainter labels issues, finds duplicates, assigns the right owners, and answers from your project knowledge so maintainers can stay focused on the core idea.
+        </p>
 
-        <motion.div
-          variants={fadeUp} initial="hidden" animate="visible" custom={0.55}
-          style={{ display:'flex', alignItems:'center', gap:20, flexWrap:'wrap' }}>
-          <motion.a href="#waitlist"
-            whileHover={{ y:-2, boxShadow:'0 12px 40px rgba(200,255,0,0.25)' }}
-            whileTap={{ scale:0.97 }}
-            style={{ fontFamily:'var(--font-mono)', fontSize:14, fontWeight:500, background:'var(--accent)', color:'var(--black)', padding:'14px 28px', borderRadius:4, textDecoration:'none', display:'inline-flex', alignItems:'center', gap:8 }}>
-            Request access
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+          <motion.a
+            href="#waitlist"
+            whileHover={{ y: -2, boxShadow: '0 22px 70px rgba(56, 189, 248, 0.22)' }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-flex h-12 items-center justify-center rounded-md border border-sky-300/20 bg-gradient-to-b from-sky-300 to-violet-400 px-6 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-950/30"
+          >
+            Request Access
           </motion.a>
-          <motion.a href="#how-it-works"
-            whileHover={{ color:'var(--off-white)' }}
-            style={{ fontSize:14, color:'var(--muted)', textDecoration:'none', display:'inline-flex', alignItems:'center', gap:6 }}>
+          <motion.a
+            href="#how-it-works"
+            whileHover={{ y: -2, borderColor: 'rgba(125, 211, 252, 0.36)', backgroundColor: 'rgba(125, 211, 252, 0.08)' }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-flex h-12 items-center justify-center rounded-md border border-white/10 bg-slate-950/55 px-6 text-sm font-semibold text-slate-100 backdrop-blur"
+          >
             See how it works
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v12M1 7l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </motion.a>
-        </motion.div>
-
-        {/* Issue ticker */}
-        <motion.div
-          variants={fadeUp} initial="hidden" animate="visible" custom={0.7}
-          style={{ marginTop:'clamp(48px,6vw,80px)' }}>
-          <p style={{ fontFamily:'var(--font-mono)', fontSize:11, color:'var(--muted)', letterSpacing:'0.1em', textTransform:'uppercase', marginBottom:12 }}>Live issue stream</p>
-          <div style={{ overflow:'hidden', maskImage:'linear-gradient(90deg,transparent,black 8%,black 92%,transparent)' }}>
-            <motion.div
-              animate={{ x:['0%','-50%'] }}
-              transition={{ duration:32, repeat:Infinity, ease:'linear' }}
-              style={{ display:'flex', gap:12, width:'max-content' }}
-              whileHover={{ animationPlayState:'paused' }}>
-              {DOUBLE.map((issue, i) => (
-                <div key={i} style={{ display:'flex', alignItems:'center', gap:10, background:'var(--card-bg)', border:'1px solid var(--border)', borderRadius:6, padding:'10px 14px', whiteSpace:'nowrap', fontSize:13 }}>
-                  <div style={{ width:6,height:6,borderRadius:'50%',background:DOT_COLORS[issue.type],flexShrink:0 }} />
-                  <span style={{ color:'var(--muted)' }}>{issue.num}</span>
-                  <span>{issue.title}</span>
-                  <span style={{ fontFamily:'var(--font-mono)', fontSize:10, padding:'2px 6px', borderRadius:3, fontWeight:500, ...TAG_STYLES[issue.tagClass] }}>{issue.tag}</span>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-        </motion.div>
+        </div>
       </div>
     </section>
+  )
+}
+
+function HeroVercelAura() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+      <motion.div
+        animate={{ opacity: [0.28, 0.48, 0.28], scale: [0.96, 1.04, 0.96] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute left-1/2 top-[28%] h-[28rem] w-[min(58rem,92vw)] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.18),rgba(125,211,252,0.10)_34%,rgba(139,92,246,0.08)_48%,transparent_70%)] blur-3xl"
+      />
+      <motion.div
+        animate={{ opacity: [0.2, 0.45, 0.2] }}
+        transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute left-1/2 top-[39%] h-px w-[min(54rem,82vw)] -translate-x-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+      />
+      <motion.div
+        animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute left-1/2 top-[43%] h-40 w-[min(42rem,76vw)] -translate-x-1/2 bg-[linear-gradient(90deg,transparent,rgba(125,211,252,0.10),rgba(167,139,250,0.12),transparent)] bg-[length:220%_100%] blur-2xl"
+      />
+    </div>
   )
 }
