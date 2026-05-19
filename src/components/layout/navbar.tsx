@@ -28,12 +28,16 @@ export function Navbar() {
             </Link>
           ))}
         </div>
-        <ButtonLink href="https://app.comainter.com/login" variant="secondary" className="h-9 px-3">
+        {/* <ButtonLink href="https://app.comainter.com/login" variant="secondary" className="h-9 px-3">
           Login
           <ArrowRightIcon className="size-4" />
         </ButtonLink>
         <ButtonLink href="https://app.comainter.com/login?freet-rial" variant="secondary" className="h-9 px-3">
           Get Free Trial
+          <ArrowRightIcon className="size-4" />
+        </ButtonLink> */}
+        <ButtonLink href="#early-access" variant="secondary" className="h-9 px-3">
+          Get access
           <ArrowRightIcon className="size-4" />
         </ButtonLink>
 
